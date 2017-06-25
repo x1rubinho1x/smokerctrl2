@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="refresh" content="10; url=/" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	<link rel="icon" type="image/gif" href="{{ url_for('static', filename='favicon.ico') }}">
+
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+
+	<script type="text/javascript">
+		$(function () {
+
+				$('#container').highcharts({
+					chart: {
+						zoomType: 'x'
+					},
+					title: {
+						text: 'Smoker Temperature Plot'
+					},
+					subtitle: {
+						text: document.ontouchstart === undefined ?
+								'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+					},
+					xAxis: {
+						type: 'datetime'
+					},
+					yAxis: {
+						title: {
+							text: 'Temperature'
+						}
+					},
+					legend: {
+						enabled: true
+					},
+					plotOptions: {
+						spline: {
+							animation: false
+							}
+					},
+
+					series: [{
+						type: 'spline',
+						name: 'Smoker Temp',
+						color: '#FF0000',
+						data: {{smokerdatastring}}
+					},{
+						type: 'spline',
+						name: 'Meat Temp',
+						color: '#000000',
+						data: {{meatdatastring}}
+					},{
+						type: 'spline',
+						name: 'On Time',
+						color: '#008800',
+						data: {{ontimedatastring}}
+					}
+					],
+
+					exporting: {
+						csv: {
+							dateFormat: '%a'
+						}
+					}
+				});
+		});
+	</script>
+
+	<title>Smoker Control</title>
+</head>
+<body>
+	<h1>Smoker Control</h1>
+
+	<p>{{timestamp}}</p>
+
+	<script src="{{ url_for('static', filename='Highcharts/js/highcharts.js') }}"></script>
+	<script src="{{ url_for('static', filename='Highcharts/js/modules/exporting.js') }}"></script>
+	<script src="{{ url_for('static', filename='Highcharts/js/plugins/export-csv.js') }}"></script>
+
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+	<h2>Smoker temp: {{smokertemp}} Meat temp: {{meattemp}} Heater state: {{heaterstate}}</h2>
+
+	<p><a href="/start">Start</a> <a href="/stop">Stop</a></p>
+
+	<h2>PID info</h2>
+	<p>Set point: {{set_point}} Meat target: {{meattemptarget}}</p>
+	<p>KP: {{Kp}} KI: {{Ki}} KD: {{Kd}}</p>
+	<p>P term: {{PTerm}} I term: {{ITerm}} D term: {{DTerm}} </p>
+	<p>Total output: {{output}} Ontime: {{ontime}}</p>
+</body>
+</html>
