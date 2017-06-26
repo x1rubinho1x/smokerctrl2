@@ -24,7 +24,7 @@ The following external libraries are required for smokerctrl2 to run:
 `./killit`
 
 #Web Interface
-http://<address of Pi>:5000/
+http://[address of Pi]:5000/
 
 Start - starts control system
 Stop - pauses control system, terminate as above after Stopping
