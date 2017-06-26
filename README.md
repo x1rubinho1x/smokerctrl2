@@ -26,8 +26,8 @@ The following external libraries are required for smokerctrl2 to run:
 # Web Interface
 http://[address of Pi]:5000/
 
-Start - starts control system
-Stop - pauses control system, terminate as above after Stopping
+* Start - starts control system
+* Stop - pauses control system, terminate as above after Stopping
 
 # Temperature Sensors
 * Smoker Temperature: [ETI 810-076 DOT / ChefAlarm oven probe and clip](https://thermometer.co.uk/probes-leads-fittings/1186-dot-oven-probe-and-clip.html?search_query=%09810-076&results=1)
