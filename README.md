@@ -1,11 +1,14 @@
 # smokerctrl2
 Raspberry Pi PID temperature controller for electric BBQ smokers written in Python
 
-Work in progress!
-
 For smokers of the style sold by:
 * [GEM Smokers](https://www.gemsmokers.co.uk/product/gem-2-tier-electric-smoker/)
 * [Alfresco Cooking Company](https://www.alfrescocookingcompany.co.uk/product-page/copy-of-electric-smoker-1100w)
+
+# Hardware
+* [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+* [Remote Controlled Mains Switch](http://www.maplin.co.uk/p/remote-controlled-mains-sockets-set-3-pack-n79ka).  Set to group III switch 2.  
+* [433MHz RF transmitter](http://www.instructables.com/id/Super-Simple-Raspberry-Pi-433MHz-Home-Automation/)
 
 # External Dependencies
 The following external libraries are required for smokerctrl2 to run:
